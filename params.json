@@ -1,0 +1,6 @@
+{
+  "name": "Super-select",
+  "tagline": "react-component",
+  "body": "# Super Select\r\nA replacement for `select` (?) on web applications.\r\n\r\n> This is still in development\r\n\r\n## Demo\r\nhttp://jsbin.com/talabi/latest/edit?js,output\r\n\r\n## Basics\r\nClone, install deps, start browser-sync server\r\n\r\n> You need webpack installed to work and browser-sync to dev task\r\n\r\n```\r\ngit clone https://github.com/Cohros/super-select.git\r\ncd super-select\r\nnpm install\r\nnpm run dev\r\n\r\n// access http://localhost:3000/example.html\r\n```\r\n\r\n## API\r\n### Props\r\n#### [x] actions\r\n#### [x] content\r\n#### [x] contentLabelProvider\r\n#### [ ] groups\r\n#### [x] label\r\n#### [x] labelkey\r\n#### [x] maxLabels\r\n#### [x] multiple\r\n#### [x] noLabels\r\n#### [x] onChange\r\n#### [x] optionRender\r\n#### [x] options\r\n#### [x] searchBox\r\n#### [x] searchKey\r\n#### [x] value\r\n#### [x] valueKey\r\n#### [x] valueLink\r\n\r\n\r\n\r\n> Written with [StackEdit](https://stackedit.io/).\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
