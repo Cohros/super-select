@@ -1,0 +1,40 @@
+{
+    "env": {
+        "browser": true
+    },
+    "globals": {
+        "require": true,
+        "module": true,
+        "exports": true
+    },
+    "rules": {
+        "no-var": 0,
+        "quotes": [2, "double", "avoid-escape"],
+        "indent": [2, 4, {"SwitchCase": 1}],
+        "comma-dangle": [2, "never"],
+        "func-names": 0,
+        "strict": [1, "function"],
+        "eqeqeq": 1,
+        "object-shorthand": [1, "never"],
+        "object-curly-spacing": [1, "never"],
+        "vars-on-top": 1,
+        "max-len": [1, 120],
+        "react/jsx-curly-spacing": [2, "always"],
+        "react/prefer-es6-class": [1, "never"],
+        "react/prop-types": 0,
+        "react/sort-comp": 1,
+        "react/jsx-indent-props": [1, 4]
+    },
+    "plugins": [
+        "react"
+    ],
+    "ecmaFeatures": {
+        "jsx": true,
+        "modules": false
+    },
+    "settings": {
+        "react": {
+            "pragma": "React"
+        }
+    }
+}

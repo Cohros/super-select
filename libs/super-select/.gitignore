@@ -1,0 +1,12 @@
+/nbproject
+/.settings
+/vpproject
+/node_modules
+/.settings
+/.project
+/.idea
+/.sass-cache
+/lib
+.buildpath
+.komodoproject
+.DS_Store

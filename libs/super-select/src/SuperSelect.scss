@@ -1,0 +1,157 @@
+$link-color: #4B93BF !default;
+$link-hover-color: darken($link-color, 15%) !default;
+$item-hover-background: lighten(#2aa4ac, 40);
+$triangle-size: 5px;
+
+.super-select-container,
+.super-select-container * {
+    box-sizing: border-box;
+    outline: none;
+}
+
+.super-select-container {
+    position: relative;
+    display: inline-block;
+    font-weight: 100;
+    text-transform: none;
+    font-family: sans-serif;
+}
+
+// margin between neighbors
+.super-select-container + .super-select-container {
+    margin-left: 20px;
+}
+
+.super-select-content {
+    position: absolute;
+    background: white;
+    z-index: 100;
+    margin-top: -6px;
+    border: 1px solid #ccc;
+    box-shadow: 1px 5px 5px rgba(0,0,0,.08);
+    min-width: 300px;
+}
+
+.super-select-button {
+    padding: 5px 7px;
+    border: 1px solid #e2e2e2;
+    border-radius: 3px;
+    cursor: pointer;
+    display: inline-block;
+    margin-bottom: 5px;
+
+    &:hover,
+    &.open {
+        border: 1px solid #ccc;
+        background: #fefefe;
+    }
+
+    &:after {
+        content: "▼";
+        opacity: .4;
+        font-size: 14px;
+        margin-left: 5px;
+    }
+
+    &.open:after {
+        content: "▲";
+    }
+}
+
+.super-select-button-label-value {
+    font-weight: bold;
+    text-transform: none;
+
+    &:after {
+        content: ", ";
+    }
+
+    &:last-child:after {
+        content: "";
+    }
+
+    &:nth-last-child(2):after {
+        content: " e ";
+    }
+}
+
+
+.super-select-options-search-container {
+    background: #f2f2f2;
+    padding: 15px 10px;
+
+    input[type="search"] {
+        width: 100%;
+        padding: 5px;
+        border: 1px solid #ccc;
+
+        &:focus {
+            border-color: #aaa;
+            outline: none;
+        }
+    }
+}
+
+.super-select-actions {
+    margin: 0;
+    padding: 0;
+    background: #fafafa;
+
+    .super-select-action {
+        list-style: none;
+        color: $link-color;
+        padding: 3px 10px;
+        cursor: pointer;
+        display: block;
+        margin: 0;
+
+        .icon {
+            margin-right: 10px;
+            color: black;
+            color: silver;
+        }
+
+        &:hover {
+            color: $link-hover-color;
+            .icon {
+                color: black;
+            }
+        }
+    }
+}
+
+.super-select-options-list {
+    padding: 0;
+    margin: 0;
+    max-height: 300px;
+    overflow: auto;
+}
+
+.super-select-options-list-item {
+    list-style: none;
+    padding: 0;
+
+    label {
+        display: block;
+        padding: 5px 10px;
+        cursor: pointer;
+        margin: 0;
+        transition: all ease-in .1s;
+        text-transform: none;
+
+        input[type="checkbox"] {
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+    }
+
+    &.not-found {
+        padding: 10px;
+        color: #999;
+    }
+}
+
+.super-select-options-list-item label:hover,
+.super-select-options-list-item.hover label {
+    background: $item-hover-background;
+}

@@ -1,124 +1,298 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
-    <meta charset="UTF-8">
-    <title>Super-select by Cohros</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-  </head>
-  <body>
-    <section class="page-header">
-      <h1 class="project-name">Super-select</h1>
-      <h2 class="project-tagline">react-component</h2>
-      <a href="https://github.com/Cohros/super-select" class="btn">View on GitHub</a>
-      <a href="https://github.com/Cohros/super-select/zipball/master" class="btn">Download .zip</a>
-      <a href="https://github.com/Cohros/super-select/tarball/master" class="btn">Download .tar.gz</a>
-    </section>
 
-    <section class="main-content">
-      <h1>
-<a id="super-select" class="anchor" href="#super-select" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Super Select</h1>
+<head>
+  <meta charset="UTF-8">
+  <title>Super-select by Cohros</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+</head>
 
-<p>A replacement for <code>select</code> (?) on web applications.</p>
+<body>
+  <section class="page-header">
+    <h1 class="project-name">Super-select</h1>
+    <h2 class="project-tagline">react-component</h2>
+    <a href="https://github.com/Cohros/super-select" class="btn">View on GitHub</a>
+    <a href="https://github.com/Cohros/super-select/zipball/master" class="btn">Download .zip</a>
+    <a href="https://github.com/Cohros/super-select/tarball/master" class="btn">Download .tar.gz</a>
+  </section>
 
-<blockquote>
-<p>This is still in development</p>
-</blockquote>
+  <section class="main-content">
 
-<h2>
-<a id="demo" class="anchor" href="#demo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Demo</h2>
+    <h1 id="super-select">Super Select</h1>
+    <p>This react component is like a <code>select</code>, but with some additional features. Is similar to the button used by <a href="https://www.atlassian.com/">Atlassian</a> on <a href="https://bitbucket.org/">bitbucket</a> and <a href="https://www.atlassian.com/software/jira">jira</a>.</p>
 
-<p><a href="http://jsbin.com/talabi/latest/edit?js,output">http://jsbin.com/talabi/latest/edit?js,output</a></p>
+    
+    
+    <h2 id="demo">Demo</h2>
+    <a class="jsbin-embed" href="http://jsbin.com/bibubud/embed?js,output">JS Bin on jsbin.com</a>
 
-<h2>
-<a id="basics" class="anchor" href="#basics" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Basics</h2>
+    
+    
+    <h2 id="features">Features</h2>
+    <ul>
+      <li>Support for single ou multi selection;</li>
+      <li>Support for linkedState;</li>
+      <li>Fuzzy search (using fuse.js);</li>
+      <li>Customizable.</li>
+    </ul>
 
-<p>Clone, install deps, start browser-sync server</p>
+    
+    <h2 id="install">Install</h2>
+    <p>Install form NPM:</p>
+    <pre class="prettyprint"><code class=" hljs ruby"><span class="hljs-variable">$ </span>npm install <span class="hljs-keyword">super</span>-select</code></pre>
+    <p>Now you can use like this:</p>
+    
+    <pre class="prettyprint"><code class="language-jsx hljs coffeescript"><span class="hljs-reserved">var</span> ReactDOM = <span class="hljs-built_in">require</span>(<span class="hljs-string">"react-dom"</span>);
+<span class="hljs-reserved">var</span> SuperSelect = <span class="hljs-built_in">require</span>(<span class="hljs-string">"super-select"</span>);
 
-<blockquote>
-<p>You need webpack installed to work and browser-sync to dev task</p>
-</blockquote>
+ReactDOM.render(
+    &lt;SuperSelect
+        label=<span class="hljs-string">"Choose an option"</span>
+        options={ [{<span class="hljs-attribute">value</span>: <span class="hljs-number">1</span>, <span class="hljs-attribute">label</span>: <span class="hljs-string">"Option A"</span>}, {<span class="hljs-attribute">value</span>: <span class="hljs-number">2</span>, <span class="hljs-attribute">label</span>: <span class="hljs-string">"Option B"</span>}] }
+    /&gt;,
+    <span class="hljs-built_in">document</span>.body
+);</code></pre>
 
-<pre><code>git clone https://github.com/Cohros/super-select.git
-cd super-select
-npm install
-npm run dev
+    
+    
+    <h2 id="props">Props</h2>
+    <h3 id="label">label</h3>
+    <p>Type: <code>string</code> | <strong>required</strong>
+      <br> The first component of Super Select that users see is the label.
+      <br> Basically, is the text that appears on the button that users must to click to access the other options.</p>
 
-// access http://localhost:3000/example.html
-</code></pre>
+    
+    
+    <h3 id="nolabels-and-maxlabels">noLabels and maxLabels</h3>
+    
+    <p><strong>noLabels</strong> | type: <code>boolean</code> | default: <code>false</code>
+      <br>
+      <strong>maxLabels</strong> | type: <code>number</code> or <code>boolean</code> | default: <code>false</code>
+      <br> Super Select can display the selected items after the label:</p>
 
-<h2>
-<a id="api" class="anchor" href="#api" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>API</h2>
+    <p><img src="images/demos/labels.png" /></p>
 
-<h3>
-<a id="props" class="anchor" href="#props" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Props</h3>
+    <p>If you want to disable this feature, set <code>noLabels</code> to <code>true</code>. To limit the number of options displayed, set the <code>maxLabels</code> to this number.</p>
 
-<h4>
-<a id="x-actions" class="anchor" href="#x-actions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>[x] actions</h4>
+    
+    
+    <h3 id="options">options</h3>
 
-<h4>
-<a id="x-content" class="anchor" href="#x-content" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>[x] content</h4>
+    <p>Type: <code>array</code>
+      <br> Options is an array of options for the Super Select. Must be an array of objects with <code>label</code> and <code>value</code> properties.</p>
+    
+    
 
-<h4>
-<a id="x-contentlabelprovider" class="anchor" href="#x-contentlabelprovider" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>[x] contentLabelProvider</h4>
+    <h3 id="labelkey">labelKey</h3>
 
-<h4>
-<a id="--groups" class="anchor" href="#--groups" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>[ ] groups</h4>
+    <p>Type: <code>string</code> | default: <code>label</code>
+      <br> If your options have different property for the label, you can specify it with this prop.</p>
 
-<h4>
-<a id="x-label" class="anchor" href="#x-label" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>[x] label</h4>
+    <blockquote>
+      <p>Attention: for now super select <u>does not</u> support nested or multiple properties.</p>
+    </blockquote>
 
-<h4>
-<a id="x-labelkey" class="anchor" href="#x-labelkey" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>[x] labelkey</h4>
+    
+    
+    <h3 id="valuekey">valueKey</h3>
 
-<h4>
-<a id="x-maxlabels" class="anchor" href="#x-maxlabels" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>[x] maxLabels</h4>
+    <p>Type: <code>string</code> | default: <code>value</code>
+      <br> If your options have different property for the value, you can specify it with this prop.</p>
 
-<h4>
-<a id="x-multiple" class="anchor" href="#x-multiple" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>[x] multiple</h4>
+    <blockquote>
+      <p>Attention: for now super select <u>does not</u> support nested or multiple properties. Remember to specify a property that has an unique value in the collection.</p>
+    </blockquote>
 
-<h4>
-<a id="x-nolabels" class="anchor" href="#x-nolabels" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>[x] noLabels</h4>
+    
+    
+    <h3 id="multiple">multiple</h3>
 
-<h4>
-<a id="x-onchange" class="anchor" href="#x-onchange" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>[x] onChange</h4>
+    <p>type: <code>boolean</code> | default: <code>true</code>
+      <br> Defines if user can select one or multiple options. If multiple is true, each option will have an checkbox. Else, will be a radio input.</p>
 
-<h4>
-<a id="x-optionrender" class="anchor" href="#x-optionrender" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>[x] optionRender</h4>
-
-<h4>
-<a id="x-options" class="anchor" href="#x-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>[x] options</h4>
-
-<h4>
-<a id="x-searchbox" class="anchor" href="#x-searchbox" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>[x] searchBox</h4>
-
-<h4>
-<a id="x-searchkey" class="anchor" href="#x-searchkey" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>[x] searchKey</h4>
-
-<h4>
-<a id="x-value" class="anchor" href="#x-value" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>[x] value</h4>
-
-<h4>
-<a id="x-valuekey" class="anchor" href="#x-valuekey" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>[x] valueKey</h4>
-
-<h4>
-<a id="x-valuelink" class="anchor" href="#x-valuelink" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>[x] valueLink</h4>
-
-<blockquote>
-<p>Written with <a href="https://stackedit.io/">StackEdit</a>.</p>
-</blockquote>
-
-      <footer class="site-footer">
-        <span class="site-footer-owner"><a href="https://github.com/Cohros/super-select">Super-select</a> is maintained by <a href="https://github.com/Cohros">Cohros</a>.</span>
-
-        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
-      </footer>
-
-    </section>
-
+    
   
-  </body>
+    <h3 id="value">value</h3>
+
+    <p>Type: <code>array</code> or <code>object</code> | <strong>required</strong>
+      <br> This is the value for the super select.
+      <br> If <code>multiple</code> is <code>true</code>, you must provide an array with the selected objects. Else, you must provide a single object.
+      <br> In both cases, each selected object must have at least the <code>value</code> property (or what you specified on <code>valueKey</code>).</p>
+
+    
+    
+    <h3 id="valuelink"><code>valueLink</code></h3>
+
+    <p>Type: <code>object</code>
+      <br> You can use linkedState with super select if you want.</p>
+
+    
+    
+    <h3 id="onchange">onChange</h3>
+
+    <p>Type: <code>function</code> | <strong>required</strong>
+      <br> The callback to be called when user change the selection.</p>
+
+    
+    
+    <h3 id="optionrender">optionRender</h3>
+
+    <p>Type: <code>function</code>
+      <br> Super Select display each option with a combination of a checkbox/radion input and a text. If you want to change this behavior, provide a function that returns the element that you want to display.
+      <br> Super Select will call this function for each option in the list and pass a context parameter with all the information that you need to know about each option.
+      <br> The properties are:</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>property</th>
+          <th>type</th>
+          <th>description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>index</td>
+          <td><code>number</code></td>
+          <td>index of the option on options array</td>
+        </tr>
+        <tr>
+          <td>option</td>
+          <td><code>object</code></td>
+          <td>current option</td>
+        </tr>
+        <tr>
+          <td>pseudoHover</td>
+          <td><code>boolean</code></td>
+          <td>users can navigate between options with the arrows keys. Super Select stores the current position of the navigation on an internal state. This property tells you if the current option is the current position or not.</td>
+        </tr>
+        <tr>
+          <td>checked</td>
+          <td><code>boolean</code></td>
+          <td>is <code>true</code> if this option is selected</td>
+        </tr>
+        <tr>
+          <td>onChange</td>
+          <td><code>function</code></td>
+          <td>by default, Super Select adds an handler for the onChange event of the checkbox/radio input. This function is the event handler and you have to call it by yourself when you customize the option passing the option as the first parameter.</td>
+        </tr>
+        <tr>
+          <td>labelKey</td>
+          <td><code>string</code></td>
+          <td>the same value as <code>labelKey</code> prop that you specified.</td>
+        </tr>
+        <tr>
+          <td>multiple</td>
+          <td><code>boolean</code></td>
+          <td>the same value as <code>multiple</code> prop that you specified.</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <p>Example:</p>
+    
+    <p><a class="jsbin-embed" href="http://jsbin.com/jasofu/embed?js,output">JS Bin on jsbin.com</a></p>
+
+
+    
+    <h3 id="content">content</h3>
+
+    <p>On the basic usage of super select, you provide an array of options and the component build a list with a lot of checkboxes and text. It will behave like a select. But sometimes you want to display something else. Using the <code>content</code> prop you can do that, so Super Select behaves like an drop down.
+      <br> You can display what you want, like an image, multiple related inputs or other components.
+      <br> Let’s see an example:</p>
+
+    <p><a class="jsbin-embed" href="http://jsbin.com/tepici/embed?js,output">JS Bin on jsbin.com</a></p>
+
+    
+    
+    <h3 id="contentLabelProvider">contentLabelProvider</h3>
+    <p>When you use the <code>content</code> prop, Super Select has no way to know what is selected or not (if you have another input as content, for example). So if you want to display the selected items next to the label, as it does on the basic usage, you can pass a function as <code>contentLabelProvider</code> that Super Select will call when it needs tha updated value to show on the component button.</p>
+
+    <p><a class="jsbin-embed" href="http://jsbin.com/foleco/embed?js,output">JS Bin on jsbin.com</a></p>
+
+
+
+    <h3 id="searchbox">searchBox</h3>
+    <p>Type: <code>boolean</code> | default: <code>true</code>
+      <br> Defines if the search box must be displayed or not. Is <code>true</code> by default.</p>
+
+    
+    
+    <h3 id="searchkeys">searchKeys</h3>
+
+    <p>Type: <code>array</code> | default: <code>["label"]</code>
+      <br> Super Select uses <a href="https://github.com/krisk/Fuse">fuse.js</a> to perform the search. You can specify on which properties fuse.js will look for the query.</p>
+
+    
+    
+    <h3 id="actions">actions</h3>
+
+    <p>On the basic usage, Super Select has a simple menu with two options: select all and unselect all.
+      <br> With the <code>actions</code> prop you can add other options to that menu. Normally this actions will not impact on Super Select, but on the parent component.</p>
+    <p><code>actions</code> must be an array of objects with the following props:</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>property</th>
+          <th>type</th>
+          <th>description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>handler</td>
+          <td><code>function</code></td>
+          <td>handler for the click event</td>
+        </tr>
+        <tr>
+          <td>label</td>
+          <td><code>string</code></td>
+          <td>the text that will be displayed</td>
+        </tr>
+        <tr>
+          <td>content</td>
+          <td><code>element</code></td>
+          <td>if your action has a more complex structure, like an icon with the text, you can provide an element in here instead of <code>label</code>.</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <p><a class="jsbin-embed" href="http://jsbin.com/pevuma/embed?js,output">JS Bin on jsbin.com</a></p>
+
+    <hr>    
+  
+    
+    <h2>Todo</h2>
+    
+    <ul>
+      <li>Tests</li>
+      <li>i18n</li>
+      <li>Groups of options</li>
+      <li>Support remote data</li>
+      <li>Allow users to configure fuse.js</li>
+    </ul>
+    
+    
+    <br />
+    <br />
+    <br />
+    <blockquote>
+      <p>Written with <a href="https://stackedit.io/">StackEdit</a>.</p>
+    </blockquote>
+
+    <footer class="site-footer">
+      <span class="site-footer-owner"><a href="https://github.com/Cohros/super-select">Super-select</a> is maintained by <a href="https://github.com/Cohros">Cohros</a>.</span>
+
+      <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+    </footer>
+
+  </section>
+  <script src="http://static.jsbin.com/js/embed.min.js?3.35.11"></script>
+</body>
+
 </html>
